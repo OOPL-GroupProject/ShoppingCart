@@ -21,9 +21,10 @@ defmodule ElixirBackendWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ElixirBackendWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ElixirBackendWeb do
+    pipe_through :api
+      get "/items", ItemController, :index
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:elixir_backend, :dev_routes) do
