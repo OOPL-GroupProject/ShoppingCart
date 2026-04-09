@@ -2,13 +2,14 @@ import Config
 
 # Configure your database
 config :elixir_backend, ElixirBackend.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "db",
-  database: "elixir_backend_dev",
+  username: System.get_env("DB_USER") || "sa",
+  password: System.get_env("DB_PASSWORD") || "YourStrongPassword123",
+  database: System.get_env("DB_NAME") || "master",
+  hostname: System.get_env("DB_HOST") || "db",
+  port: String.to_integer(System.get_env("DB_PORT") || "1433"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  show_sensitive_data_on_connection_error: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.

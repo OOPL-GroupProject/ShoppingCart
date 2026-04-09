@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/app/csharp-backend/csharp-backend.csproj": {}
+    "E:\\CS332\\ShoppingCart\\csharp-backend\\csharp-backend.csproj": {}
   },
   "projects": {
-    "/app/csharp-backend/csharp-backend.csproj": {
+    "E:\\CS332\\ShoppingCart\\csharp-backend\\csharp-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/csharp-backend/csharp-backend.csproj",
+        "projectUniqueName": "E:\\CS332\\ShoppingCart\\csharp-backend\\csharp-backend.csproj",
         "projectName": "csharp-backend",
-        "projectPath": "/app/csharp-backend/csharp-backend.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/csharp-backend/obj/",
+        "projectPath": "E:\\CS332\\ShoppingCart\\csharp-backend\\csharp-backend.csproj",
+        "packagesPath": "C:\\Users\\Karina\\.nuget\\packages\\",
+        "outputPath": "E:\\CS332\\ShoppingCart\\csharp-backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Karina\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.419/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
