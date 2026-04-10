@@ -1,2 +1,24 @@
-# Environment variables (DB Connection)
+# --- Security ---
 .env
+
+# --- C# / .NET ---
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+.vs/
+.vscode/
+
+# --- Elixir / Phoenix ---
+/_build
+/deps
+/erl_crash.dump
+*.ez
+
+# --- Frontend / Node ---
+node_modules/
+.next/
+out/
+build/
+.DS_Store
+*.sln
