@@ -74,6 +74,29 @@ public class ItemServiceIntegrationTests
         });
     }
 
+    [Test]
+    public async Task DeleteItemAsync_WhenItemExists_RemovesItemAndReturnsTrue()
+    {
+        var fakeItem = CreateFakeItem(1);
+        var createdItem = await _sut.CreateItemAsync(fakeItem);
+
+        var wasDeleted = await _sut.DeleteItemAsync(createdItem.Id);
+        var persistedItem = await _context.Items.FirstOrDefaultAsync(item => item.Id == createdItem.Id);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(wasDeleted, Is.True);
+            Assert.That(persistedItem, Is.Null);
+        });
+    }
+
+    [Test]
+    public async Task DeleteItemAsync_WhenItemDoesNotExist_ReturnsFalse()
+    {
+        var wasDeleted = await _sut.DeleteItemAsync(999_999);
+        Assert.That(wasDeleted, Is.False);
+    }
+
     private static CreateItemRequestDto CreateFakeItem(int index)
     {
         return new CreateItemRequestDto

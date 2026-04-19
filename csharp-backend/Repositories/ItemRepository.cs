@@ -34,4 +34,17 @@ public class ItemRepository : IItemRepository
         await _context.SaveChangesAsync();
         return item;
     }
+
+    public async Task<bool> DeleteItemAsync(int id)
+    {
+        var item = await _context.Items.FirstOrDefaultAsync(existingItem => existingItem.Id == id);
+        if (item is null)
+        {
+            return false;
+        }
+
+        _context.Items.Remove(item);
+        await _context.SaveChangesAsync();
+        return true;
+    }
 }

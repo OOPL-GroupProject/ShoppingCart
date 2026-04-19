@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("csharp-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+226aa748a0018d27b5a92d106cb81d14a14f3907")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62969e64dc0a8ba034f083e516f59d7b3a4b76b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("csharp-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("csharp-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
