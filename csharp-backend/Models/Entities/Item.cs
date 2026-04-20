@@ -2,6 +2,7 @@ namespace CSharpBackend.Models.Entities;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CSharpBackend.Models.Enums;
 
 [Table("Item")]
 public class Item
@@ -14,7 +15,7 @@ public class Item
     [MaxLength(200)]
     public string Name { get; set; } = string.Empty;
 
-    public int Type { get; set; }
+    public ItemType Type { get; set; }
 
     public decimal Price { get; set; }
 

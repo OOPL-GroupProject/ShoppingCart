@@ -2,6 +2,7 @@ namespace CSharpBackend.Tests.Integration.Items;
 
 using CSharpBackend.Data;
 using CSharpBackend.Models.DTOs;
+using CSharpBackend.Models.Enums;
 using CSharpBackend.Repositories;
 using CSharpBackend.Services;
 using Microsoft.EntityFrameworkCore;
@@ -102,7 +103,7 @@ public class ItemServiceIntegrationTests
         return new CreateItemRequestDto
         {
             Name = $"Fake Item {index} {Guid.NewGuid():N}",
-            Type = index % 3,
+            Type = (ItemType)(index % 3),
             Price = 5 + index,
             Quantity = index * 2,
             Description = $"Generated fake item {index}"

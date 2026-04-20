@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { getApiErrorMessage } from "@/services/apiError";
-import { createItem } from "@/services/items";
+import { createItem, ITEM_TYPE_OPTIONS, ItemType } from "@/services/items";
 
 type FormValues = {
   name: string;
@@ -17,7 +17,7 @@ type FormValues = {
 
 const initialFormValues: FormValues = {
   name: "",
-  type: "0",
+  type: "",
   price: "",
   quantity: "0",
   description: "",
@@ -45,6 +45,11 @@ export default function PostItemPage() {
       return;
     }
 
+    if (!ITEM_TYPE_OPTIONS.some((option) => option.value === itemType)) {
+      toast.error("Please choose a valid item type.");
+      return;
+    }
+
     if (!Number.isFinite(itemPrice) || itemPrice <= 0) {
       toast.error("Price must be greater than 0.");
       return;
@@ -60,7 +65,7 @@ export default function PostItemPage() {
     try {
       await createItem({
         name: itemName,
-        type: Number.isFinite(itemType) ? itemType : 0,
+        type: itemType as ItemType,
         price: itemPrice,
         quantity: itemQuantity,
         description: formValues.description.trim() || null,
@@ -98,15 +103,22 @@ export default function PostItemPage() {
 
             <label className="flex flex-col gap-2 text-sm font-medium text-zinc-700">
               Type
-              <input
-                type="number"
+              <select
                 value={formValues.type}
                 onChange={(event) => setFormValues((current) => ({ ...current, type: event.target.value }))}
                 className="rounded-lg border border-zinc-300 px-3 py-2 text-zinc-900 outline-none ring-blue-200 transition focus:border-blue-500 focus:ring"
-                min={0}
-                step={1}
+                required
                 disabled={isSaving}
-              />
+              >
+                <option value="" disabled>
+                  Select item type
+                </option>
+                {ITEM_TYPE_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
 
             <label className="flex flex-col gap-2 text-sm font-medium text-zinc-700">

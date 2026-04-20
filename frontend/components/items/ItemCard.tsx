@@ -1,4 +1,4 @@
-import type { Item } from "@/services/items";
+import { getItemTypeLabel, type Item } from "@/services/items";
 
 type ItemCardProps = {
   item: Item;
@@ -10,7 +10,7 @@ export function ItemCard({ item }: ItemCardProps) {
       <div className="mb-2 flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-zinc-900">{item.name}</h3>
         <span className="rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700">
-          Type {item.type}
+          {getItemTypeLabel(item.type)}
         </span>
       </div>
 
