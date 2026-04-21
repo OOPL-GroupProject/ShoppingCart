@@ -1,20 +1,6 @@
 
 
 services:
-  #db:
-  #  image: mcr.microsoft.com/mssql/server:2022-latest
-  #  restart: always
-  #  environment:
-  #    - DB_USER=${DB_USER}
-  #    - DB_PASSWORD=${DB_PASSWORD}
-  #    - DB_NAME=${DB_NAME}
-  #    - DB_HOST=${DB_HOST}
-  #    - DB_PORT=${DB_PORT}
-  #  ports:
-  #    - "1433:1433"
-  #  volumes:
-  #    - postgres_data:/var/lib/postgresql/data
-      
   frontend:
     build: ./frontend
     ports:
@@ -40,8 +26,6 @@ services:
       - "host.docker.internal:host-gateway"
     env_file:
       - .env
-    #depends_on:         # Good idea to make the backend wait for the DB too
-    #  - db
 
   csharp-backend:
     build: ./csharp-backend
@@ -53,8 +37,3 @@ services:
       - "host.docker.internal:host-gateway"
     env_file:
       - .env
-    #depends_on:
-    #  - db
-
-volumes:
-  postgres_data:

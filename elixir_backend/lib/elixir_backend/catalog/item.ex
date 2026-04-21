@@ -3,17 +3,17 @@ defmodule ElixirBackend.Catalog.Item do
 
   import Ecto.Changeset
 
-  @primary_key {:id, :id, source: "Id", autogenerate: true}
+  @primary_key {:id, :id, source: :Id, autogenerate: true}
   @item_types 0..7
 
   @derive {Jason.Encoder, only: [:id, :name, :type, :price, :quantity, :description]}
 
   schema "Item" do
-    field :name, :string, source: "Name"
-    field :type, :integer, source: "Type"
-    field :price, :decimal, source: "Price"
-    field :quantity, :integer, source: "Quantity"
-    field :description, :string, source: "Description"
+    field :name, :string, source: :Name
+    field :type, :integer, source: :Type
+    field :price, :decimal, source: :Price
+    field :quantity, :integer, source: :Quantity
+    field :description, :string, source: :Description
   end
 
   def changeset(item, attrs) do
