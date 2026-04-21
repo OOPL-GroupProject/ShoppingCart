@@ -14,16 +14,13 @@ defmodule ElixirBackendWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ElixirBackendWeb do
-    pipe_through :browser
-
-    get "/", PageController, :home
-  end
-
-  # Other scopes may use custom stacks.
   scope "/api", ElixirBackendWeb do
     pipe_through :api
-      get "/items", ItemController, :index
+
+    get "/items", ItemController, :index
+    get "/items/:id", ItemController, :show
+    post "/items", ItemController, :create
+    delete "/items/:id", ItemController, :delete
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
