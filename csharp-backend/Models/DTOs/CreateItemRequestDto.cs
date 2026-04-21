@@ -1,25 +1,23 @@
-namespace CSharpBackend.Models.Entities;
+namespace CSharpBackend.Models.DTOs;
 
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using CSharpBackend.Models.Enums;
 
-[Table("Item")]
-public class Item
+public class CreateItemRequestDto
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
-
     [Required]
     [MaxLength(200)]
     public string Name { get; set; } = string.Empty;
 
+    [EnumDataType(typeof(ItemType))]
     public ItemType Type { get; set; }
 
+    [Range(typeof(decimal), "0.01", "79228162514264337593543950335")]
     public decimal Price { get; set; }
 
+    [Range(0, int.MaxValue)]
     public int Quantity { get; set; }
 
+    [MaxLength(2000)]
     public string? Description { get; set; }
 }

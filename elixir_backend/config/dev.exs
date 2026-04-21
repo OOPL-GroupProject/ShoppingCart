@@ -25,7 +25,9 @@ config :elixir_backend, ElixirBackendWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "Iscxasl4kcK2Q1Lb4Dky+9z3eZmqp0tOZLbTA3ertQVzFFdj+a7jcG/Ec2uISaT2",
+  secret_key_base:
+    System.get_env("SECRET_KEY_BASE") ||
+      "9R+jZLsjkKk/3eGMOiLCGWxTEkXO4nf4bZN9abhIyZ6MohXR3BBAA2EHVy4OUAhj",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:elixir_backend, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:elixir_backend, ~w(--watch)]}
